@@ -1,28 +1,30 @@
 #include <iostream>
 using namespace std;
 
+void printNumber(int* numberPtr){
+    cout << *numberPtr <<'\n';
+}
+void printLetter(char* charPtr){
+    cout << *charPtr << '\n';
+}
+void print(void* ptr, char type){
+    switch(type){
+        case 'i': cout << *((int*)ptr) << '\n'; break;
+        case 'c': cout << *((char*)ptr) << '\n'; break;
+    }
+}
+
 int main()
 {
 
-    int n = 5;
-    cout << &n << '\n';
+    int number = 5;
+    char letter = 'A';
 
-    int* ptr = &n;
+    //printNumber(&number);
+    //printLetter(&letter);
 
-    cout << ptr << '\n';
-    cout << *ptr << '\n';
-    cout << "*****************\n";
+    print(&number, 'i');
+    print(&letter, 'c');
 
-    *ptr = 10;
-
-    cout << *ptr << '\n';
-    cout << n << '\n';
-
-    int v;
-    int* ptr1 = &v;
-    *ptr1 = 7;
-    cout << "V = " << v << '\n';
-
-    system("pause>0");
     return 0;
 }
