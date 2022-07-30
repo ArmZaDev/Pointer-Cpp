@@ -4,22 +4,24 @@ using namespace std;
 int main()
 {
 
-    int size;
-    cout << "Size: ";
-    cin >> size;
+    int rows, cols;
 
-    //int myArray[size];
-    int* myArray = new int[size];
+    cout << "row, cols: ";
+    cin >> rows >> cols;
 
-    for (int i = 0; i < size; i++){
-        cout << "Array[" << i << "]";
-        cin >> myArray[i];
+    int** table = new int* [rows];
+
+    for(int i = 0; i < rows; i++){
+        table[i] = new int[cols];
     }
 
-    for (int i = 0; i < size; i++){
-        //cout << myArray[i] << ' ';
-        cout << *(myArray + i) << ' ';
+    table[1][2] = 88;
+
+    for(int i = 0; i < rows; i++){
+        delete[] table[i];
     }
+    delete[] table;
+    table = NULL;
 
     return 0;
 }
