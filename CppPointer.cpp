@@ -1,30 +1,25 @@
 #include <iostream>
 using namespace std;
 
-void printNumber(int* numberPtr){
-    cout << *numberPtr <<'\n';
-}
-void printLetter(char* charPtr){
-    cout << *charPtr << '\n';
-}
-void print(void* ptr, char type){
-    switch(type){
-        case 'i': cout << *((int*)ptr) << '\n'; break;
-        case 'c': cout << *((char*)ptr) << '\n'; break;
-    }
-}
-
 int main()
 {
 
-    int number = 5;
-    char letter = 'A';
+    int luckyNUmbers[5];
+    /*
+    cout << luckyNUmbers <<'\n';
+    cout << &luckyNUmbers[0] << '\n';
+    cout << luckyNUmbers[2] << '\n';
+    cout << *(luckyNUmbers + 2) << '\n';
+    */
+   //0 - 4 
+   for (int i = 0; i < 5; i++){
+    cout << "Number: ";
+    cin >> luckyNUmbers[i];
+   }
 
-    //printNumber(&number);
-    //printLetter(&letter);
-
-    print(&number, 'i');
-    print(&letter, 'c');
+   for (int i = 0; i < 5; i++){
+    cout << *(luckyNUmbers + i) << ' ';
+   }
 
     return 0;
 }
