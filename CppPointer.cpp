@@ -1,25 +1,56 @@
 #include <iostream>
 using namespace std;
 
+int getMin(int numbers[], int size){
+    int min = numbers[0];
+
+    for (int i = 1; i < size; i++){
+        if (numbers[i] < min){
+            min = numbers[i];
+        }
+    }
+    return min;
+}
+
+int getMax(int numbers[], int size){
+    int max = numbers[0];
+
+    for (int i = 1; i < size; i++){
+        if (numbers[i] > max){
+            max = numbers[i];
+        }
+    }
+    return max;
+}
+
+int getMinAndMax(int numbers[], int size, int* min, int* max){
+
+    for (int i = 1; i < size; i++){
+        if (numbers[i] > *max){
+            *max = numbers[i];
+        }
+        if (numbers[i] < *min){
+            *min = numbers[i];
+        }
+    }
+    
+}
+
 int main()
 {
 
-    int luckyNUmbers[5];
+    int numbers[5] = {5, 4, -2, 29, 6};
     /*
-    cout << luckyNUmbers <<'\n';
-    cout << &luckyNUmbers[0] << '\n';
-    cout << luckyNUmbers[2] << '\n';
-    cout << *(luckyNUmbers + 2) << '\n';
+    cout << "min is " << getMin(numbers, 5) << '\n';
+    cout << "max is " << getMax(numbers, 5) << '\n';
     */
-   //0 - 4 
-   for (int i = 0; i < 5; i++){
-    cout << "Number: ";
-    cin >> luckyNUmbers[i];
-   }
 
-   for (int i = 0; i < 5; i++){
-    cout << *(luckyNUmbers + i) << ' ';
-   }
+    int min = numbers[0];
+    int max = numbers[0];
+
+    getMinAndMax(numbers, 5, &min, &max);
+    cout << "Min is " << min << '\n';
+    cout << "Max is " << max << '\n';
 
     return 0;
 }
